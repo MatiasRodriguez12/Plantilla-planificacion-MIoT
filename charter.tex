@@ -204,62 +204,27 @@ Para el desarrollo del presente proyecto se supone que:
 \label{sec:requerimientos}
 
 \begin{enumerate}
-	\item Requerimientos funcionales:
+	\item Requerimientos en el dispositivo:
 		\begin{enumerate}
-			\item El sistema debe...
-			\begin{enumerate}
-				\item fdsfsd
-				\item fdsfsdffsafasfsa
-			\end{enumerate}
-			\item Tal componente debe...
-			\item El usuario debe poder...
+			\item Debe establecer comunicación con el Cerbo GX utilizando el protocolo Modbus TCP sobre Ethernet o Wi-Fi.
+			\item Debe comunicarse con el módulo PRC10 a través del protocolo CAN.
+			\item Debe generar una red Wi-Fi en modo Access Point con SSID configurable
+			\item La frecuencia de actualización de datos debe ser de alrededor de cada veinte segundos.			
 		\end{enumerate}
-	\item Requerimientos de documentación:
+	\item Requerimientos en la aplicación:
 		\begin{enumerate}
-			\item Requerimiento 1.
-			\item Requerimiento 2 (prioridad menor)
+			\item Debe conectarse al sistema embebido mediante la red Wi-Fi generada por este.
+			\item Debe mostrar en tiempo real el estado de las variables monitoreadas.
+			\item Debe permitir el envío de comandos para el control de los dispositivos de domótica.
+			\item Debe ser accesible desde dispositivos con sistema operativo Android.
+			\item Puede incluir la funcionalidad logueo de usuario para acceso a los controles del sistema.
 		\end{enumerate}
-	\item Requerimiento de testing...
-	\item Requerimientos de la interfaz...
-	\item Requerimientos interoperabilidad...
-	\item etc...
+	\item Requerimientos generales:
+		\begin{enumerate}
+			\item El sistema debe operar de forma autónoma, sin requerir conexión a Internet.
+			\item El equipo debe alimentarse a través de la red física de 12 VDC (+12, GND, CAN H, CAN L) utilizada por los demás dispositivos.
+		\end{enumerate}
 \end{enumerate}
-
-\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-Los requerimientos deben enumerarse y de ser posible estar agrupados por afinidad, por ejemplo:
-
-\begin{enumerate}
-	\item Requerimientos funcionales:
-		\begin{enumerate}
-			\item El sistema debe...
-			\item Tal componente debe...
-			\item El usuario debe poder...
-		\end{enumerate}
-	\item Requerimientos de documentación:
-		\begin{enumerate}
-			\item Requerimiento 1.
-			\item Requerimiento 2 (prioridad menor)
-		\end{enumerate}
-	\item Requerimiento de testing...
-	\item Requerimientos de la interfaz...
-	\item Requerimientos interoperabilidad...
-	\item etc...
-\end{enumerate}
-
-Leyendo los requerimientos se debe poder interpretar cómo será el proyecto y su funcionalidad.
-
-Indicar claramente cuál es la prioridad entre los distintos requerimientos y si hay requerimientos opcionales. 
-
-\textbf{¡¡¡No olvidarse de que los requerimientos incluyen a las regulaciones y normas vigentes!!!}
-
-Y al escribirlos seguir las siguientes reglas:
-\begin{itemize}
-	\item Ser breve y conciso (nadie lee cosas largas). 
-	\item Ser específico: no dejar lugar a confusiones.
-	\item Expresar los requerimientos en términos que sean cuantificables y medibles.
-\end{itemize}
-
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
 
 \section{7. Historias de usuarios (\textit{Product backlog})}
 \label{sec:backlog}
