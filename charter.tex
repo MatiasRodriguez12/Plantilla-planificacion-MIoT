@@ -229,34 +229,85 @@ Para el desarrollo del presente proyecto se supone que:
 \section{7. Historias de usuarios (\textit{Product backlog})}
 \label{sec:backlog}
 
-\begin{consigna}{red}
-Descripción: en esta sección se deben incluir las historias de usuarios y su ponderación (\textit{history points}). Recordar que las historias de usuarios son descripciones cortas y simples de una característica contada desde la perspectiva de la persona que desea la nueva capacidad, generalmente un usuario o cliente del sistema. La ponderación es un número entero que representa el tamaño de la historia comparada con otras historias de similar tipo.
+Para definir los story points se utilizará la serie de Fibonacci.
 
-Se debe indicar explícitamente el criterio para calcular los \textit{story points} de cada historia.
-
-El formato propuesto es: 
+Por otra parte, la tabla de pesos a utilizar será:
 \begin{enumerate}
-\item ``Como [rol] quiero [tal cosa] para [tal otra cosa]."
+\item Dificultad en el trabajo a realizar:
+	\begin{itemize}
+		\item Baja: peso 1.
+		\item Media: peso 3.
+		\item Alta: peso 5.
+	\end{itemize}
 
-\textit{Story points}: 8 (complejidad: 3, dificultad: 2, incertidumbre: 3)
+\item Complejidad en el trabajo a realizar:
+	\begin{itemize}
+		\item Baja: peso 1.
+		\item Media: peso 4.
+		\item Alta: peso 7.
+	\end{itemize}
+
+\item Incertidumbre en el trabajo a realizar:
+	\begin{itemize}
+		\item Baja: peso 2.
+		\item Media: peso 3.
+		\item Alta: peso 5.
+	\end{itemize}
 \end{enumerate}
-\end{consigna}
+
+Historias de usuario:
+\begin{enumerate}
+	\item Como usuario final, quiero conectarme desde mi teléfono a la red Wi-Fi del dispositivo para poder visualizar y controlar los sistemas del motorhome.
+		\begin{itemize}
+			\item Dificultad: media.
+			\item Complejidad: media.
+			\item Incertidumbre: alto.
+			\item Story point: 13.
+	\end{itemize}
+	\item Como usuario final, quiero encender y apagar dispositivos de la red de domótica desde la aplicación para controlar el ambiente del motorhome.
+		\begin{itemize}
+			\item Dificultad: bajo.
+			\item Complejidad: media.
+			\item Incertidumbre: bajo.
+			\item Story point: 8.
+	\end{itemize}
+	\item Como desarrollador, quiero que el dispositivo lea datos del Cerbo GX usando Modbus TCP para integrarlos al sistema de monitoreo.
+		\begin{itemize}
+			\item Dificultad: alto.
+			\item Complejidad: media.
+			\item Incertidumbre: media.
+			\item Story point: 13.
+	\end{itemize}
+	\item Como instalador, quiero que el dispositivo se alimente desde la red física existente (+12, GND, CAN H, CAN L) para facilitar la integración en el motorhome.
+		\begin{itemize}
+			\item Dificultad: media.
+			\item Complejidad: media.
+			\item Incertidumbre: bajo.
+			\item Story point: 8.
+	\end{itemize}
+	\item Como técnico de Enertik, quiero que el dispositivo se comunique con el PRC10 mediante CAN para poder integrar la red de domótica con el nuevo sistema.
+		\begin{itemize}
+			\item Dificultad: alta.
+			\item Complejidad: media.
+			\item Incertidumbre: alta.
+			\item Story point: 13.
+	\end{itemize}
+\end{enumerate}
 
 \section{8. Entregables principales del proyecto}
 \label{sec:entregables}
-
-\begin{consigna}{red}
-Los entregables del proyecto son (ejemplo):
+Los entregables del proyecto son:
 
 \begin{itemize}
-	\item Manual de usuario.
-	\item Diagrama de circuitos esquemáticos.
+	\item Prototipo funcional del dispositivo de comunicación.
+	\item Diagrama esquemático del circuito.
 	\item Código fuente del firmware.
-	\item Diagrama de instalación.
-	\item Memoria del trabajo final.
-	\item etc...
+	\item Código fuente de la aplicación móvil
+	\item Lista de componentes para montaje (BOM).
+	\item Archivos gerber para fabricación de PCB.
+	\item Instalador de la aplicación (en caso de ser implementado).
+	\item Memoria final de trabajo.
 \end{itemize}
-\end{consigna}
 
 \section{9. Desglose del trabajo en tareas}
 \label{sec:wbs}
