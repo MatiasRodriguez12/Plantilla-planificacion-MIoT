@@ -85,7 +85,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en el desarrollo de un dispositivo que posibilite la adaptación e integración de equipos comerciales a una red domótica orientada al control y monitoreo de sistemas energéticos en motorhomes. El trabajo tendrá un presupuesto preliminar estimado de \textcolor{red}{600} horas y un costo estimado de \textcolor{red}{\$ XXX}, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \fechaFinalName.
+Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en el desarrollo de un dispositivo que posibilite la adaptación e integración de equipos comerciales a una red domótica orientada al control y monitoreo de sistemas energéticos en motorhomes. El trabajo tendrá un presupuesto preliminar estimado de 631 horas y un costo estimado de \textcolor{red}{\$ XXX}, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -208,8 +208,8 @@ Para el desarrollo del presente proyecto se supone que:
 		\begin{enumerate}
 			\item Debe establecer comunicación con el Cerbo GX utilizando el protocolo Modbus TCP sobre Ethernet o Wi-Fi.
 			\item Debe comunicarse con el módulo PRC10 a través del protocolo CAN.
-			\item Debe generar una red Wi-Fi en modo Access Point con SSID configurable
-			\item La frecuencia de actualización de datos debe ser de alrededor de cada veinte segundos.			
+			\item Debe generar una red Wi-Fi en modo Access Point con SSID configurable.
+			\item La frecuencia de actualización de datos debe ser de aproximadamente veinte segundos.			
 		\end{enumerate}
 	\item Requerimientos en la aplicación:
 		\begin{enumerate}
@@ -285,7 +285,7 @@ Historias de usuario:
 			\item Incertidumbre: bajo.
 			\item Story point: 8.
 	\end{itemize}
-	\item Como técnico de Enertik, quiero que el dispositivo se comunique con el PRC10 mediante CAN para poder integrar la red de domótica con el nuevo sistema.
+	\item Como desarrollador, quiero que el dispositivo se comunique con la PRC10 mediante CAN para poder integrar el nuevo sistema a la red de domótica.
 		\begin{itemize}
 			\item Dificultad: alta.
 			\item Complejidad: media.
@@ -337,8 +337,8 @@ Los entregables del proyecto son:
 		\item Desarrollo de librería con la información de todos los dispositivos de Victron Energy (25 h)
 		\item Modbus TCP: implementación por Wi-Fi (30 h)
 		\item Modbus TCP: implementación por Ethernet con W5100 (30 h)		
-		\item Incorporación de los comandos y funciones para operar con los registros por Modbus (30 h)
-		\item Análisis y comporativa de implementación Wi-Fi y Ethernet (8 h)
+		\item Incorporación de los comandos y funciones para operar con los registros Modbus (30 h)
+		\item Análisis y comporativa entre implementación Wi-Fi y Ethernet (8 h)
 		\item Ensayos de comunicación entre ESP32 y Cerbo GX (20 h)
 		\end{enumerate}		
 	\end{enumerate}
@@ -351,14 +351,14 @@ Los entregables del proyecto son:
 			\item Desarrollo de estructura en HTML (25 h)
 			\item Estilos visuales con CSS (25 h)
 			\item Manejo de peticiones y funciones con Javascript - Typescript (35 h)
-			\item Conversión de formato y carga de la aplicación al ESP32 (15 h)
+			\item Conversión de formato y carga de archivos al ESP32 (15 h)
 			\item Ensayos con distintos navegadores y dispositivos (15 h)
 		\end{enumerate}
 		\item Desarrollo de aplicación nativa para Android
 		\begin{enumerate}
 			\item Creación y configuración de proyecto en Angular (10 h)
 			\item Desarrollo de componentes y vistas (HTML - CSS - Javascript) (30 h)
-			\item Manejo de peticiones y funciones para comunicación con ESP32 por websocket (15 h)
+			\item Implementación de comunicación con el ESP32 por WebSocket (15 h)
 			\item Configuración en Android Studio para generación de APK (10 h)
 			\item Ensayos en distintos dispositivos móviles (15 h)
 		\end{enumerate}	
