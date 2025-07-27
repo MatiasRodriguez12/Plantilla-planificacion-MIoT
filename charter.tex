@@ -61,6 +61,7 @@ Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios 
 0      & Creación del documento                                 &\fechaInicioName \\ \hline
 1      & Se completa hasta el punto 5 inclusive                & 8 de julio de 2025 \\ \hline
 2      & Se completa hasta el punto 9 inclusive				& 15 de julio de 2025 \\ \hline	
+3      & Se completa hasta el punto 12 inclusive				& 29 de julio de 2025 \\ \hline	
 %		  Se puede agregar algo más \newline
 %		  En distintas líneas \newline
 %		  Así                                                    & {día} de {mes} de 202X \\ \hline
@@ -85,7 +86,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en el desarrollo de un dispositivo que posibilite la adaptación e integración de equipos comerciales a una red domótica orientada al control y monitoreo de sistemas energéticos en motorhomes. El trabajo tendrá un presupuesto preliminar estimado de 631 horas y un costo estimado de \textcolor{red}{\$ XXX}, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \fechaFinalName.
+Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en el desarrollo de un dispositivo que posibilite la adaptación e integración de equipos comerciales a una red domótica orientada al control y monitoreo de sistemas energéticos en motorhomes. El trabajo tendrá un presupuesto preliminar estimado de 671 horas y un costo estimado de US\$ 14.313, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -217,7 +218,7 @@ Para el desarrollo del presente proyecto se supone que:
 			\item Debe mostrar en tiempo real el estado de las variables monitoreadas.
 			\item Debe permitir el envío de comandos para el control de los dispositivos de domótica.
 			\item Debe ser accesible desde dispositivos con sistema operativo Android.
-			\item Puede incluir la funcionalidad de inicio de sesión de usuario para acceso a los controles del sistema.
+			\item Puede incluir la funcionalidad de autenticación de usuario para acceso a los controles del sistema.
 		\end{enumerate}
 	\item Requerimientos generales:
 		\begin{enumerate}
@@ -324,7 +325,7 @@ Los entregables del proyecto son:
 	\begin{enumerate}
 	\item Configuración de periféricos sobre el ESP32: pines, timers, puertos, RTOS (10 h).
 	\item Implementación de la red Wi-FI como Acess Point: configuración y manejo de conexión (10 h).
-	\item Desarrollo de comunicación con PRC10
+	\item Desarrollo de comunicación con el módulo PRC10
 		\begin{enumerate}
 		\item Protocolo CAN: implementación con MCP2551 (10 h).
 		\item Desarrollo del módulo transceiver (10 h).
@@ -332,7 +333,7 @@ Los entregables del proyecto son:
 		\item Modificación del firmware de la PRC10 (20 h).
 		\item Ensayos de comunicación entre ESP32 y PRC10 (20 h).
 		\end{enumerate}	
-	\item Desarrollo de comunicación con Cerbo GX
+	\item Desarrollo de comunicación con el módulo Cerbo GX
 		\begin{enumerate}
 		\item Desarrollo de la biblioteca con la información de todos los dispositivos de Victron Energy (25 h).
 		\item Modbus TCP: implementación por Wi-Fi (30 h).
@@ -342,7 +343,7 @@ Los entregables del proyecto son:
 		\item Ensayos de comunicación entre ESP32 y Cerbo GX (20 h).
 		\end{enumerate}		
 	\end{enumerate}
-\item Desarrollo de la aplicación (220 h)
+\item Desarrollo de la aplicación (260 h)
 	\begin{enumerate}
 		\item Análisis y evaluación: aplicación embebida y aplicación nativa para Android (10 h).
 		\item Diseño de esquemas para interfaces gráficas (15 h).
@@ -361,6 +362,14 @@ Los entregables del proyecto son:
 			\item Implementación de la comunicación con el ESP32 por WebSocket (15 h).
 			\item Configuración en Android Studio para generación de APK (10 h).
 			\item Ensayos en distintos dispositivos móviles (15 h).
+		\end{enumerate}
+		\item Desarrollo de backend en ESP32
+		\begin{enumerate}
+			\item Definición de endpoints y estructura de API (REST / WebSocket) (5 h).
+			\item Implementación del servidor HTTP en ESP32 (10 h).
+			\item Programación del canal WebSocket para datos en tiempo real (10 h).
+			\item Gestión de solicitudes de la aplicación (10 h).
+			\item Pruebas de carga y depuración del backend (5 h).
 		\end{enumerate}	
 	\end{enumerate}
 \item Desarrollo de PCB (78 h)
@@ -368,7 +377,7 @@ Los entregables del proyecto son:
 		\item Diseño de prototipo experimental (25 h).
 		\item Desarrollo de PCB con Altium Designer (35 h).
 		\item Fabricación: generación de archivos gerber e inicio de tramite de fabricación (10 h).
-		\item Generación de esquemático de circuito y lista de componentes para montaje (8 h).
+		\item Elaboración del diagrama esquemático del circuito y confección de la lista de materiales (BOM) para montaje (8 h).
 	\end{enumerate}
 \item Redacción de informe final para maestría (70 h)
 	\begin{enumerate}
@@ -378,14 +387,14 @@ Los entregables del proyecto son:
 	\end{enumerate}
 \end{enumerate}
 
-Cantidad total de horas: 631 h.
+Cantidad total de horas: 671 h.
 
 \section{10. Diagrama de Activity On Node}
 \label{sec:AoN}
 
 La Figura \ref{fig:aongeneral} muestra el diagrama Activity on Node general del proyecto, junto con el tiempo que demandará cada tarea (expresado en horas).
 
-Se puede observar que el camino crítico (representado por el trayecto en rojo) tomará unas 411 horas de trabajo.
+Se puede observar que el camino crítico (representado por el trayecto en rojo) tomará unas 438 horas de trabajo.
 
 \begin{figure}[htpb]
 \centering 
@@ -443,90 +452,37 @@ A continuación se mostrarán los diagramas Activity on Node que representan a l
 \section{11. Diagrama de Gantt}
 \label{sec:gantt}
 
-\begin{consigna}{red}
-Existen muchos programas y recursos \textit{online} para hacer diagramas de Gantt, entre los cuales destacamos:
+Las Figuras \ref{fig:gantt1} y \ref{fig:gantt2} muestran el diagrama de Gantt del proyecto. Cada una de las tareas se ven reflejadas en la tabla que muestra la Figura \ref{fig:wbs}.
 
-\begin{itemize}
-\item Planner
-\item GanttProject
-\item Trello + \textit{plugins}. En el siguiente link hay un tutorial oficial: \\ \url{https://blog.trello.com/es/diagrama-de-gantt-de-un-proyecto}
-\item Creately, herramienta online colaborativa. \\\url{https://creately.com/diagram/example/ieb3p3ml/LaTeX}
-\item Se puede hacer en latex con el paquete \textit{pgfgantt}\\ \url{http://ctan.dcc.uchile.cl/graphics/pgf/contrib/pgfgantt/pgfgantt.pdf}
-\end{itemize}
-
-Pegar acá una captura de pantalla del diagrama de Gantt, cuidando que la letra sea suficientemente grande como para ser legible. 
-Si el diagrama queda demasiado ancho, se puede pegar primero la ``tabla'' del Gantt y luego pegar la parte del diagrama de barras del diagrama de Gantt.
-
-Configurar el software para que en la parte de la tabla muestre los códigos del EDT (WBS).\\
-Configurar el software para que al lado de cada barra muestre el nombre de cada tarea.\\
-Revisar que la fecha de finalización coincida con lo indicado en el Acta Constitutiva.
-
-En la figura \ref{fig:gantt}, se muestra un ejemplo de diagrama de gantt realizado con el paquete de \textit{pgfgantt}. 
-En la plantilla pueden ver el código que lo genera y usarlo de base para construir el propio.
-
-Las fechas pueden ser calculadas utilizando alguna de las herramientas antes citadas. Sin embargo, el siguiente ejemplo
-fue elaborado utilizando 
-\href{https://docs.google.com/spreadsheets/d/1fBz8NhSpc4tkkhz3KjJCbh1nR_ltDkfEcZi4tZXduqs}{esta hoja de cálculo}.
-
-Es importante destacar que el ancho del diagrama estará dado por la longitud del texto utilizado para las tareas 
-(Ejemplo: tarea 1, tarea 2, etcétera) y el valor \textit{x unit}. Para mejorar la apariencia del diagrama, es necesario
-ajustar este valor y, quizás, acortar los nombres de las tareas.
-
-\begin{figure}[htpb]
-  \begin{center}
-    \begin{ganttchart}[
-      time slot unit=day,
-      time slot format=isodate,
-      x unit=0.038cm,
-      y unit title=0.7cm,
-      y unit chart=0.6cm,
-      milestone/.append style={xscale=4}
-      ]{2021-03-05}{2021-12-16}
-      \gantttitlecalendar*{2021-03-05}{2021-12-16}{year} \\
-      \gantttitlecalendar*{2021-03-05}{2021-12-16}{month} \\
-      \ganttgroup{Duración Total}{2021-03-05}{2021-12-16} \\
-      %%%%%%%%%%%%%%%%%Organización
-      \ganttgroup{Organización}{2021-03-05}{2021-04-16} \\
-      \ganttbar{Planificación del proyecto}{2021-03-05}{2021-04-15} \\
-      %%%%%%%%%%%%%%%%%Ejecución
-      \ganttgroup{Ejecución}{2021-04-16}{2021-10-21} \\
-      \ganttbar{Tarea 1}{2021-04-16}{2021-04-29} \\
-      \ganttbar{Tarea 2}{2021-04-30}{2021-05-13} \\
-      \ganttbar{Tarea 3}{2021-05-14}{2021-05-27} \\
-      \ganttbar{Tarea 4}{2021-05-28}{2021-07-12} \\
-      \ganttbar{Tarea 5}{2021-07-13}{2021-08-09} \\
-      \ganttbar{Tarea 6}{2021-08-10}{2021-09-23} \\
-      \ganttbar{Tarea 7}{2021-09-24}{2021-09-30} \\
-      \ganttbar{Tarea 8}{2021-10-01}{2021-10-14} \\
-      \ganttbar{Tarea 9}{2021-10-15}{2021-10-21} \\
-      % %%%%%%%%%%%%%%%%%Finalización
-      \ganttgroup{Finalización}{2021-10-22}{2021-12-16} \\
-      \ganttbar{Memoria v1}{2021-10-22}{2021-11-04} \\
-      \ganttbar{Memoria v2}{2021-11-05}{2021-11-18} \\
-      \ganttbar{Memoria final}{2021-11-19}{2021-12-02} \\
-      % La fecha del siguiente milestone es la fecha en que terminamos la memoria
-      \ganttmilestone{Enviar memoria al director}{2021-12-02} \\
-      \ganttbar{Elaborar la presentación}{2021-12-03}{2021-12-16} \\
-      \ganttmilestone{Ensayo de la presentación}{2021-12-16} \\
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \end{ganttchart}
-  \end{center}
-  \caption{Diagrama de gantt de ejemplo}
-  \label{fig:gantt}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.34]{./Figuras/tareas2.png}
+\caption{Lista de tareas.}
+\label{fig:wbs}
 \end{figure}
 
-
 \begin{landscape}
-\begin{figure}[htpb]
+\begin{figure}
 \centering 
-\includegraphics[height=.85\textheight]{./Figuras/Gantt-2.png}
-\caption{Ejemplo de diagrama de Gantt (apaisado).} %Modificar este título acorde.
-\label{fig:diagGantt}
+\includegraphics[scale=0.7]{./Figuras/gantt_1.png}
+\caption{Diagrama de Gantt (tareas 1 y 2).}
+\label{fig:gantt1}
 \end{figure}
 
 \end{landscape}
 
-\end{consigna}
+\begin{landscape}
+\begin{figure}
+\centering 
+\includegraphics[scale=0.7]{./Figuras/gantt_2.png}
+\caption{Diagrama de Gantt (tareas 3, 4 y 5).}
+\label{fig:gantt2}
+\end{figure}
+
+\end{landscape}
+
+
+
 
 
 \section{12. Presupuesto detallado del proyecto}
@@ -546,35 +502,35 @@ Descripción &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
 \multicolumn{1}{|l|}{Horas de trabajo} &631
-   &\multicolumn{1}{c|}{\$ 15}
-   &\multicolumn{1}{c|}{\$ 9.465}
+   &\multicolumn{1}{c|}{US\$ 15}
+   &\multicolumn{1}{c|}{US\$ 9.465}
    \\ \hline
 \multicolumn{1}{|l|}{Módulo ESP32} &1
-   &\multicolumn{1}{c|}{\$ 10}
-   &\multicolumn{1}{c|}{\$ 10}
+   &\multicolumn{1}{c|}{US\$ 10}
+   &\multicolumn{1}{c|}{US\$ 10}
    \\ \hline
 \multicolumn{1}{|l|}{Módulo W5100} &1
-   &\multicolumn{1}{c|}{\$ 6}
-   &\multicolumn{1}{c|}{\$ 6}
+   &\multicolumn{1}{c|}{US\$ 6}
+   &\multicolumn{1}{c|}{US\$ 6}
    \\ \hline
 \multicolumn{1}{|l|}{Módulo MCP2551} &1
-   &\multicolumn{1}{c|}{\$ 5}
-   &\multicolumn{1}{c|}{\$ 5}
+   &\multicolumn{1}{c|}{US\$ 5}
+   &\multicolumn{1}{c|}{US\$ 5}
    \\ \hline
 \multicolumn{1}{|l|}{PCB experimental para prototipo} &1
-   &\multicolumn{1}{c|}{\$ 1}
-   &\multicolumn{1}{c|}{\$ 1}
+   &\multicolumn{1}{c|}{US\$ 1}
+   &\multicolumn{1}{c|}{US\$ 1}
    \\ \hline
 \multicolumn{1}{|l|}{PCB definitivo comercial} &1
-   &\multicolumn{1}{c|}{\$ 35}
-   &\multicolumn{1}{c|}{\$ 35}
+   &\multicolumn{1}{c|}{US\$ 35}
+   &\multicolumn{1}{c|}{US\$ 35}
    \\ \hline
 \multicolumn{1}{|l|}{Componentes pasivos varios} &1
-   &\multicolumn{1}{c|}{\$ 20}
-   &\multicolumn{1}{c|}{\$ 20}
+   &\multicolumn{1}{c|}{US\$ 20}
+   &\multicolumn{1}{c|}{US\$ 20}
    \\ \hline
 \multicolumn{3}{|c|}{SUBTOTAL} &
-  \multicolumn{1}{c|}{\$ 9.542} \\ \hline
+  \multicolumn{1}{c|}{US\$ 9.542} \\ \hline
 \rowcolor[HTML]{C0C0C0} 
 \multicolumn{4}{|c|}{\cellcolor[HTML]{C0C0C0}COSTOS INDIRECTOS} \\ \hline
 \rowcolor[HTML]{C0C0C0} 
@@ -583,13 +539,13 @@ Descripción &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
 \multicolumn{1}{|l|}{50 \% de los costos directos } &\multicolumn{1}{c|}{1}
-   &\multicolumn{1}{c|}{\$ 4.771}
-   &\multicolumn{1}{c|}{\$ 4.771}
+   &\multicolumn{1}{c|}{US\$ 4.771}
+   &\multicolumn{1}{c|}{US\$ 4.771}
    \\ \hline
 \multicolumn{3}{|c|}{SUBTOTAL} &
-  \multicolumn{1}{c|}{\$ 4.771} \\ \hline
+  \multicolumn{1}{c|}{US\$ 4.771} \\ \hline
 \rowcolor[HTML]{C0C0C0}
-\multicolumn{3}{|c|}{TOTAL} & \multicolumn{1}{c|}{\$ 14.313}
+\multicolumn{3}{|c|}{TOTAL} & \multicolumn{1}{c|}{US\$ 14.313}
    \\ \hline
 \end{tabularx}%
 \end{table}
