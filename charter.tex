@@ -217,7 +217,7 @@ Para el desarrollo del presente proyecto se supone que:
 			\item Debe mostrar en tiempo real el estado de las variables monitoreadas.
 			\item Debe permitir el envío de comandos para el control de los dispositivos de domótica.
 			\item Debe ser accesible desde dispositivos con sistema operativo Android.
-			\item Puede incluir la funcionalidad logueo de usuario para acceso a los controles del sistema.
+			\item Puede incluir la funcionalidad de inicio de sesión de usuario para acceso a los controles del sistema.
 		\end{enumerate}
 	\item Requerimientos generales:
 		\begin{enumerate}
@@ -316,65 +316,65 @@ Los entregables del proyecto son:
 \begin{enumerate}
 \item Análisis inicial (30 h)
 	\begin{enumerate}
-	\item Revisión de documentación de microcontrolador ESP32 (5 h)
-	\item Revisión de documentación de Victron Energy y Modbus TCP (20 h)
-	\item Preparación de entorno de desarrollo IDE (5 h)
+	\item Revisión de la documentación de microcontrolador ESP32 (5 h).
+	\item Revisión de la documentación de Victron Energy y Modbus TCP (20 h).
+	\item Preparación del entorno de desarrollo IDE (5 h).
 	\end{enumerate}
 \item Desarrollo de hardware (233 h)
 	\begin{enumerate}
-	\item Configuración periféricos de ESP32: pines, timers, puertos, RTOS (10 h)
-	\item Implementación de Wi-FI como Acess Point: configuración y manejo de conexión (10 h)
+	\item Configuración de periféricos sobre el ESP32: pines, timers, puertos, RTOS (10 h).
+	\item Implementación de la red Wi-FI como Acess Point: configuración y manejo de conexión (10 h).
 	\item Desarrollo de comunicación con PRC10
 		\begin{enumerate}
-		\item Protocolo CAN: implementación con MCP2551 (10 h)
-		\item Desarrollo de módulo transceiver (10 h)
-		\item Incorporación de los comandos utilizados en la PRC10 (10 h)
-		\item Modificación del firmware de la PRC10 (20 h)
-		\item Ensayos de comunicación entre ESP32 y PRC10 (20 h)
+		\item Protocolo CAN: implementación con MCP2551 (10 h).
+		\item Desarrollo del módulo transceiver (10 h).
+		\item Incorporación de los comandos utilizados en la PRC10 (10 h).
+		\item Modificación del firmware de la PRC10 (20 h).
+		\item Ensayos de comunicación entre ESP32 y PRC10 (20 h).
 		\end{enumerate}	
 	\item Desarrollo de comunicación con Cerbo GX
 		\begin{enumerate}
-		\item Desarrollo de librería con la información de todos los dispositivos de Victron Energy (25 h)
-		\item Modbus TCP: implementación por Wi-Fi (30 h)
-		\item Modbus TCP: implementación por Ethernet con W5100 (30 h)		
-		\item Incorporación de los comandos y funciones para operar con los registros Modbus (30 h)
-		\item Análisis y comporativa entre implementación Wi-Fi y Ethernet (8 h)
-		\item Ensayos de comunicación entre ESP32 y Cerbo GX (20 h)
+		\item Desarrollo de la biblioteca con la información de todos los dispositivos de Victron Energy (25 h).
+		\item Modbus TCP: implementación por Wi-Fi (30 h).
+		\item Modbus TCP: implementación por Ethernet con W5100 (30 h).		
+		\item Incorporación de los comandos y funciones para operar con los registros Modbus (30 h).
+		\item Análisis y comporativa entre implementación Wi-Fi y Ethernet (8 h).
+		\item Ensayos de comunicación entre ESP32 y Cerbo GX (20 h).
 		\end{enumerate}		
 	\end{enumerate}
-\item Desarrollo de aplicación (220 h)
+\item Desarrollo de la aplicación (220 h)
 	\begin{enumerate}
-		\item Análisis y evaluación: aplicación embebida y aplicación nativa para Android  (10 h)
-		\item Diseño de esquemas para interfaces gráficas (15 h)
+		\item Análisis y evaluación: aplicación embebida y aplicación nativa para Android (10 h).
+		\item Diseño de esquemas para interfaces gráficas (15 h).
 		\item Desarrollo de aplicación embebida
 		\begin{enumerate}
-			\item Desarrollo de estructura en HTML (25 h)
-			\item Estilos visuales con CSS (25 h)
-			\item Manejo de peticiones y funciones con Javascript - Typescript (35 h)
-			\item Conversión de formato y carga de archivos al ESP32 (15 h)
-			\item Ensayos con distintos navegadores y dispositivos (15 h)
+			\item Desarrollo de estructura en HTML (25 h).
+			\item Estilos visuales con CSS (25 h).
+			\item Manejo de peticiones y funciones con Javascript - Typescript (35 h).
+			\item Conversión de formato y carga de archivos al ESP32 (15 h).
+			\item Ensayos con distintos navegadores y dispositivos (15 h).
 		\end{enumerate}
-		\item Desarrollo de aplicación nativa para Android
+		\item Desarrollo de la aplicación nativa para Android
 		\begin{enumerate}
-			\item Creación y configuración de proyecto en Angular (10 h)
-			\item Desarrollo de componentes y vistas (HTML - CSS - Javascript) (30 h)
-			\item Implementación de comunicación con el ESP32 por WebSocket (15 h)
-			\item Configuración en Android Studio para generación de APK (10 h)
-			\item Ensayos en distintos dispositivos móviles (15 h)
+			\item Creación y configuración del proyecto en Angular (10 h).
+			\item Desarrollo de componentes y vistas (HTML - CSS - Javascript) (30 h).
+			\item Implementación de la comunicación con el ESP32 por WebSocket (15 h).
+			\item Configuración en Android Studio para generación de APK (10 h).
+			\item Ensayos en distintos dispositivos móviles (15 h).
 		\end{enumerate}	
 	\end{enumerate}
 \item Desarrollo de PCB (78 h)
 	\begin{enumerate}
-		\item Diseño de prototipo experimental (25 h)
-		\item Desarrollo de PCB con Altium Designer (35 h)
-		\item Fabricación: generación de archivos gerber e inicio de tramite de fabricación (10 h)
-		\item Generación de esquemático de circuito y lista de componentes para montaje (8 h)
+		\item Diseño de prototipo experimental (25 h).
+		\item Desarrollo de PCB con Altium Designer (35 h).
+		\item Fabricación: generación de archivos gerber e inicio de tramite de fabricación (10 h).
+		\item Generación de esquemático de circuito y lista de componentes para montaje (8 h).
 	\end{enumerate}
 \item Redacción de informe final para maestría (70 h)
 	\begin{enumerate}
-		\item Redacción de informe de avance (10 h)
-		\item Redacción de informe final del proyecto (40 h)
-		\item Elaboración de presentación (20 h)
+		\item Redacción del informe de avance (10 h).
+		\item Redacción del informe final del proyecto (40 h).
+		\item Elaboración de la presentación (20 h).
 	\end{enumerate}
 \end{enumerate}
 
@@ -383,25 +383,62 @@ Cantidad total de horas: 631 h.
 \section{10. Diagrama de Activity On Node}
 \label{sec:AoN}
 
-\begin{consigna}{red}
-Armar el AoN a partir del WBS definido en la etapa anterior.
+La Figura \ref{fig:aongeneral} muestra el diagrama Activity on Node general del proyecto, junto con el tiempo que demandará cada tarea (expresado en horas).
 
-Una herramienta simple para desarrollar los diagramas es el Draw.io (\url{https://app.diagrams.net/}).
-\href{https://app.diagrams.net}{Draw.io}
-
+Se puede observar que el camino crítico (representado por el trayecto en rojo) tomará unas 411 horas de trabajo.
 
 \begin{figure}[htpb]
 \centering 
-\includegraphics[width=.8\textwidth]{./Figuras/AoN.png}
-\caption{Diagrama de \textit{Activity on Node}.}
-\label{fig:AoN}
+\includegraphics[width=.8\textwidth]{./Figuras/aon_general.png}
+\caption{Diagrama de \textit{Activity on Node general}.}
+\label{fig:aongeneral}
 \end{figure}
 
-Indicar claramente en qué unidades están expresados los tiempos.
-De ser necesario indicar los caminos semi críticos y analizar sus tiempos mediante un cuadro.
-Es recomendable usar colores y un cuadro indicativo describiendo qué representa cada color.
+A continuación se mostrarán los diagramas Activity on Node que representan a las distintas subtareas, junto con el tiempo que demandarán cada una de ellas (expresado en horas). El camino crítico quedará representado por el trayecto de color rojo.
 
-\end{consigna}
+\begin{itemize}
+			\item La Figura \ref{fig:tareas_1} muestra las subtareas 1.
+			\item La Figura \ref{fig:tareas_2} muestra las subtareas 2.
+			\item La Figura \ref{fig:tareas_3} muestra las subtareas 3.
+			\item La Figura \ref{fig:tareas_4} muestra las subtareas 4.
+			\item La Figura \ref{fig:tareas_5} muestra las subtareas 5.
+	\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{./Figuras/tareas_1.png}
+\caption{Activity on Node (tareas 1).}
+\label{fig:tareas_1}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{./Figuras/tareas_2.png}
+\caption{Activity on Node (tareas 2).}
+\label{fig:tareas_2}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{./Figuras/tareas_3.png}
+\caption{Activity on Node (tareas 3).}
+\label{fig:tareas_3}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{./Figuras/tareas_4.png}
+\caption{Activity on Node (tareas 4).}
+\label{fig:tareas_4}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{./Figuras/tareas_5.png}
+\caption{Activity on Node (tareas 5).}
+\label{fig:tareas_5}
+\end{figure}
 
 \section{11. Diagrama de Gantt}
 \label{sec:gantt}
