@@ -553,35 +553,49 @@ Descripción &
 \section{13. Gestión de riesgos}
 \label{sec:riesgos}
 
-\begin{consigna}{red}
-a) Identificación de los riesgos (al menos cinco) y estimación de sus consecuencias:
- 
-Riesgo 1: detallar el riesgo (riesgo es algo que si ocurre altera los planes previstos de forma negativa)
-\begin{itemize}
-	\item Severidad (S): mientras más severo, más alto es el número (usar números del 1 al 10).\\
-	Justificar el motivo por el cual se asigna determinado número de severidad (S).
-	\item Probabilidad de ocurrencia (O): mientras más probable, más alto es el número (usar del 1 al 10).\\
-	Justificar el motivo por el cual se asigna determinado número de (O). 
-\end{itemize}   
+a) Identificación de los riesgos y estimación de sus consecuencias:
 
-Riesgo 2:
+Riesgo 1: dificultad para conseguir los elementos necesarios para el desarrollo del hardware.
 \begin{itemize}
-	\item Severidad (S): X.\\
-	Justificación...
-	\item Ocurrencia (O): Y.\\
-	Justificación...
+	\item Severidad (S): 9.\\
+	No contar con estos elementos en tiempo y forma ocasionará un retraso en el desarrollo del proyecto.
+	\item Probabilidad de ocurrencia (O): 2.\\
+	Los elementos elegidos durante la planificación son bastantes accesibles en Argentina (muchos proveedores los comercializan).
 \end{itemize}
 
-Riesgo 3:
+Riesgo 2: falta de información o claridad proporcionada en la web de Victron Energy.
 \begin{itemize}
-	\item Severidad (S):  X.\\
-	Justificación...
-	\item Ocurrencia (O): Y.\\
-	Justificación...
+	\item Severidad (S): 8.\\
+	Cualquier faltante de información dificultará el desarrollo del proyecto.
+	\item Probabilidad de ocurrencia (O): 4.\\
+	Victron Energy pone a disposición un amplio abanico de guías y manuales para este tipo de desarrollo.
+\end{itemize}      
+
+Riesgo 3: incertidumbre respecto al alcance del control de los equipos mediante el protocolo Modbus TCP
+\begin{itemize}
+	\item Severidad (S): 7.\\
+	Si la cantidad de variables disponibles para controlar o monitorear resulta limitada, la funcionalidad del dispositivo quedará restringida y reducirá su integración con la red de domótica.
+	\item Probabilidad de ocurrencia (O): 8.\\
+	Los registros accesibles a través de Modbus TCP son finitos y es probable que varios parámetros relevantes no estén disponibles, lo que afectará el alcance del monitoreo.
+\end{itemize}  
+
+Riesgo 4: problemas en la comunicación entre la aplicación y el ESP32.
+\begin{itemize}
+	\item Severidad (S): 9.\\
+	Si la comunicación falla, pueden producirse lecturas erróneas de datos o la ejecución incorrecta de comandos, lo que afectaría el funcionamiento del dispositivo y la red de domótica.
+	\item Probabilidad de ocurrencia (O): 7.\\
+	 Existe la posibilidad de saturación del sistema, especialmente si se intenta mantener una comunicación en tiempo real con alto volumen de mensajes.
 \end{itemize}
 
+Riesgo 5: imposibilidad de adaptar el firmware del módulo PRC10.
+\begin{itemize}
+	\item Severidad (S): 10.\\
+	Si no es posible realizar las modificaciones necesarias en el firmware, se impediría la integración de los equipos Victron con la red de domótica.
+	\item Probabilidad de ocurrencia (O): 2.\\
+	 El firmware es provisto por Enertik, por lo que se tendrá acceso a su código fuente.
+\end{itemize}
 
-b) Tabla de gestión de riesgos:      (El RPN se calcula como RPN=SxO)
+b) Tabla de gestión de riesgos      (El RPN se calcula como RPN=SxO):
 
 \begin{table}[htpb]
 \centering
@@ -589,36 +603,37 @@ b) Tabla de gestión de riesgos:      (El RPN se calcula como RPN=SxO)
 \hline
 \rowcolor[HTML]{C0C0C0} 
 Riesgo & S & O & RPN & S* & O* & RPN* \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
+Dificultad en la obteción de componentes       &  9 & 2  &  18   &    &    &      \\ \hline
+Falta de información por parte de Victro Energy       &  8 &  4 &  32   &    &    &      \\ \hline
+Incertidumbre en el alcance de control de los equipos       & 7  & 8  & 56    &   7 & 6   & 42     \\ \hline
+Problemas en la comunicación entre aplicación y ESP32       &  9 & 7  & 63    &  8  & 6   & 48     \\ \hline
+Imposibilidad de adaptar el firmware del módulo PRC10       & 10  & 2  & 20    &    &    &      \\ \hline
 \end{tabularx}%
 \end{table}
 
 Criterio adoptado: 
 
-Se tomarán medidas de mitigación en los riesgos cuyos números de RPN sean mayores a...
-
-Nota: los valores marcados con (*) en la tabla corresponden luego de haber aplicado la mitigación.
+Se tomarán medidas de mitigación en los riesgos cuyos números de RPN sean mayores a 50.
 
 c) Plan de mitigación de los riesgos que originalmente excedían el RPN máximo establecido:
  
-Riesgo 1: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
-  Nueva asignación de S y O, con su respectiva justificación:
-  \begin{itemize}
-	\item Severidad (S*): mientras más severo, más alto es el número (usar números del 1 al 10).
-          Justificar el motivo por el cual se asigna determinado número de severidad (S).
-	\item Probabilidad de ocurrencia (O*): mientras más probable, más alto es el número (usar del 1 al 10).
-          Justificar el motivo por el cual se asigna determinado número de (O).
-	\end{itemize}
-
-Riesgo 2: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
+Riesgo 3: se realizará un relevamiento completo de la documentación de Victron Energy y, en caso de detectar alguna limitación, se priorizarán los parámetros mas relevantes para el usuario final.
  
-Riesgo 3: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
-
-\end{consigna}
+  \begin{itemize}
+	\item Severidad (S*): 7.\\
+          La severidad no variará.
+	\item Probabilidad de ocurrencia (O*): 6.\\
+          Una investigación anticipada y la definición clara de qué variables serán controladas reducirán la incertidumbre y la probabilidad de que este riesgo se manifieste.
+	\end{itemize}
+	
+Riesgo 4: se definirá una tasa de intercambio de datos moderada y estable, evitando la saturación del sistema sin comprometer las funciones esenciales de control y monitoreo.
+ 
+  \begin{itemize}
+	\item Severidad (S*): 8.\\
+          Una menor carga de datos reducirá el impacto de fallas de comunicación.
+	\item Probabilidad de ocurrencia (O*): 6.\\
+          La probabilidad de ocurrencia no variará.
+	\end{itemize}
 
 
 \section{14. Gestión de la calidad}
