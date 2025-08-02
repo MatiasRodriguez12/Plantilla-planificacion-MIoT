@@ -639,42 +639,74 @@ Riesgo 4: se definirá una tasa de intercambio de datos moderada y estable, evit
 \section{14. Gestión de la calidad}
 \label{sec:calidad}
 
-\begin{consigna}{red}
-Elija al menos diez requerimientos que a su criterio sean los más importantes/críticos/que aportan más valor y para cada uno de ellos indique las acciones de verificación y validación que permitan asegurar su cumplimiento.
-
 \begin{itemize} 
-\item Req \#1: copiar acá el requerimiento con su correspondiente número.
+\item 1.1 Debe establecer comunicación con el Cerbo GX utilizando el protocolo Modbus TCP sobre Ethernet o Wi-Fi.
 
 \begin{itemize}
-	\item Verificación para confirmar si se cumplió con lo requerido antes de mostrar el sistema al cliente. Detallar.
-	\item Validación con el cliente para confirmar que está de acuerdo en que se cumplió con lo requerido. Detallar. 
+	\item Verificación: se realizarán ensayos de comunicación en los que el ESP32 enviará comandos de lectura y escritura a los registros del Cerbo GX a través de cable Ethernet y/o Wi-Fi.
+	\item Validación: el cliente validará la comunicación ejecutando operaciones de monitoreo y control sobre los equipos de Victron Energy en condiciones normales de uso. 
+\end{itemize}
+
+\item 1.2 Debe comunicarse con el módulo PRC10 a través del protocolo CAN.
+
+\begin{itemize}
+	\item Verificación: se realizarán pruebas de comunicación en las que el ESP32 enviará y recibirá mensajes CAN hacia y desde el módulo PRC10, verificando la correcta interpretación de comandos y la estabilidad del enlace.
+	\item Validación: el cliente validará el funcionamiento probando operaciones de control y monitoreo de la red de domótica mediante el PRC10, confirmando que la comunicación cumple con lo especificado.
+\end{itemize}
+
+\item 1.3 Debe generar una red Wi-Fi en modo Access Point con SSID configurable.
+
+\begin{itemize}
+	\item Verificación: se realizarán pruebas para verificar que el ESP32 pueda crear una red Wi‑Fi en modo Access Point, comprobar la visibilidad del SSID y la posibilidad de modificarlo desde la configuración del dispositivo.
+	\item Validación: el cliente validará el funcionamiento conectándose a la red creada, cambiando el SSID y confirmando que el acceso y la comunicación se mantienen correctos después de cada modificación.
+\end{itemize}
+
+\item 2.1 Debe conectarse al sistema embebido mediante la red Wi-Fi generada por este.
+\begin{itemize}
+	\item Verificación: se realizarán pruebas conectando distintos dispositivos móviles (Android) a la red Wi‑Fi creada por el ESP32. Se verificará que la aplicación pueda establecer conexión con el sistema embebido, enviar solicitudes y recibir datos sin pérdida de información.
+	\item  Validación: el cliente probará la conexión desde diferentes dispositivos y confirmará que la aplicación se conecta correctamente y mantiene la comunicación estable con el sistema embebido.
+\end{itemize}
+
+\item 2.2 Debe mostrar en tiempo real el estado de las variables monitoreadas.
+\begin{itemize}
+	\item Verificación: se programará un test en el ESP32 que simule el envío de datos de todos los dispositivos a la aplicación. Se comprobará que los valores reflejados en la aplicación coincidan con los generados por el microcontrolador, respetando una latencia máxima establecida.
+	\item Validación: el cliente verificará, en condiciones de uso real, que la aplicación muestre los datos actualizados sin retrasos significativos y confirmará que la frecuencia de actualización cumple con lo requerido.
+\end{itemize}
+
+\item 2.3 Debe permitir el envío de comandos para el control de los dispositivos de domótica.
+\begin{itemize}
+	\item Verificación: se establecerán funciones de registro (LOG) en el ESP32 que muestren un mensaje en la PC cada vez que se reciba un comando desde la aplicación, indicando qué acción ejecutará como respuesta.
+	\item Validación: el cliente probará la aplicación enviando comandos en condiciones de uso real y confirmará que los dispositivos respondan de manera inmediata y conforme a lo solicitado.
+\end{itemize}
+
+\item 3.2 El equipo debe alimentarse a través de la red física de 12 VDC (+12, GND, CAN H, CAN L) utilizada por los demás dispositivos.
+\begin{itemize}
+	\item Verificación: se realizarán pruebas de alimentación conectando el equipo a la red física de 12 VDC y verificando su correcto funcionamiento sin interrupciones ni daños.
+	\item Validación: el cliente confirmará que el equipo opera adecuadamente cuando se alimenta desde la red física compartida con los demás dispositivos.
 \end{itemize}
 
 \end{itemize}
 
-Tener en cuenta que en este contexto se pueden mencionar simulaciones, cálculos, revisión de hojas de datos, consulta con expertos, mediciones, etc.  
-
-Las acciones de verificación suelen considerar al entregable como ``caja blanca'', es decir se conoce en profundidad su funcionamiento interno.  
-
-En cambio, las acciones de validación suelen considerar al entregable como ``caja negra'', es decir, que no se conocen los detalles de su funcionamiento interno.
-
-\end{consigna}
 
 \section{15. Procesos de cierre}    
 \label{sec:cierre}
+\begin{enumerate}
+\item Cumplimiento del plan de trabajo.
+	\begin{itemize}
+	\item Se tomará en cuenta el tiempo que realmente fue necesario emplear para llevar a cabo cada una de las tareas, y se lo comparará con lo planificado originalmente.
+	\item Responsable: Matías Nahuel Rodriguez.
+	\end{itemize}
+\item Identificación de las técnicas y procedimientos empleados.
+	\begin{itemize}
+	\item Durante el desarrollo del proyecto, se documentarán de forma sistemática todos los procedimientos y técnicas aplicados, independientemente de si los resultados fueron satisfactorios o no. Esta documentación permitirá registrar el proceso completo seguido para cumplir con los requerimientos. Además, se utilizará GitHub como herramienta de control de versiones para dejar constancia del desarrollo del producto final.
+	\item Responsable: Matías Nahuel Rodriguez.
+	\end{itemize}
+\item Acto de agradecimientos.
+	\begin{itemize}
+	\item La defensa del proyecto se realizará una vez este haya culminado. Aquí se agradecerá a las distintas personas que colaboraron durante la ejecución del proyecto, así como también al personal que conforma a la CEIoT.
+	\item Responsable: Matías Nahuel Rodriguez.
+	\end{itemize}
+\end{enumerate}
 
-\begin{consigna}{red}
-Establecer las pautas de trabajo para realizar una reunión final de evaluación del proyecto, tal que contemple las siguientes actividades:
-
-\begin{itemize}
-	\item Pautas de trabajo que se seguirán para analizar si se respetó el Plan de Proyecto original:\\
-	 - Indicar quién se ocupará de hacer esto y cuál será el procedimiento a aplicar. 
-	\item Identificación de las técnicas y procedimientos útiles e inútiles que se emplearon, los problemas que surgieron y cómo se solucionaron:\\
-	 - Indicar quién se ocupará de hacer esto y cuál será el procedimiento para dejar registro.
-	\item Indicar quién organizará el acto de agradecimiento a todos los interesados, y en especial al equipo de trabajo y colaboradores:\\
-	  - Indicar esto y quién financiará los gastos correspondientes.
-\end{itemize}
-
-\end{consigna}
 
 \end{document}
